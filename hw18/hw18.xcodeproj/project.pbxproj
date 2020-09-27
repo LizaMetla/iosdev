@@ -21,6 +21,7 @@
 		D20F3130251FB62F0065F58E /* PersistenceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20F312F251FB62F0065F58E /* PersistenceManager.swift */; };
 		D20F3132251FBABE0065F58E /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20F3131251FBABE0065F58E /* TableViewController.swift */; };
 		D20F3134251FCDAF0065F58E /* ShowCompanyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20F3133251FCDAF0065F58E /* ShowCompanyViewController.swift */; };
+		D20F31372520001E0065F58E /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20F31362520001E0065F58E /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		D20F312F251FB62F0065F58E /* PersistenceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceManager.swift; sourceTree = "<group>"; };
 		D20F3131251FBABE0065F58E /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		D20F3133251FCDAF0065F58E /* ShowCompanyViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowCompanyViewController.swift; sourceTree = "<group>"; };
+		D20F31362520001E0065F58E /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,16 +74,17 @@
 		D20F310D251E357A0065F58E /* hw18 */ = {
 			isa = PBXGroup;
 			children = (
+				D20F310E251E357A0065F58E /* AppDelegate.swift */,
+				D20F31362520001E0065F58E /* CoreDataManager.swift */,
 				D20F3125251E4A0D0065F58E /* Company+CoreDataClass.swift */,
 				D20F3126251E4A0D0065F58E /* Company+CoreDataProperties.swift */,
 				D20F3127251E4A0D0065F58E /* Employee+CoreDataClass.swift */,
-				D20F312F251FB62F0065F58E /* PersistenceManager.swift */,
 				D20F3128251E4A0D0065F58E /* Employee+CoreDataProperties.swift */,
-				D20F310E251E357A0065F58E /* AppDelegate.swift */,
-				D20F3133251FCDAF0065F58E /* ShowCompanyViewController.swift */,
-				D20F3110251E357A0065F58E /* SceneDelegate.swift */,
+				D20F312F251FB62F0065F58E /* PersistenceManager.swift */,
 				D20F3131251FBABE0065F58E /* TableViewController.swift */,
+				D20F3133251FCDAF0065F58E /* ShowCompanyViewController.swift */,
 				D20F312D251E56380065F58E /* AddViewController.swift */,
+				D20F3110251E357A0065F58E /* SceneDelegate.swift */,
 				D20F3114251E357A0065F58E /* Main.storyboard */,
 				D20F311A251E357B0065F58E /* Assets.xcassets */,
 				D20F311C251E357B0065F58E /* LaunchScreen.storyboard */,
@@ -168,6 +171,7 @@
 				D20F3132251FBABE0065F58E /* TableViewController.swift in Sources */,
 				D20F312A251E4A0D0065F58E /* Company+CoreDataProperties.swift in Sources */,
 				D20F3134251FCDAF0065F58E /* ShowCompanyViewController.swift in Sources */,
+				D20F31372520001E0065F58E /* CoreDataManager.swift in Sources */,
 				D20F310F251E357A0065F58E /* AppDelegate.swift in Sources */,
 				D20F3111251E357A0065F58E /* SceneDelegate.swift in Sources */,
 				D20F312C251E4A0D0065F58E /* Employee+CoreDataProperties.swift in Sources */,

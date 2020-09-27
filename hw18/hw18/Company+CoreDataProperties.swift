@@ -20,25 +20,25 @@ extension Company {
     //проперти
     @NSManaged public var nameOfCompany: String?
     @NSManaged public var adress: String?
-    @NSManaged public var numberOfEmployees: Int64
-    @NSManaged public var employees: NSSet? //коллекция 
+    @NSManaged public var numberOfEmployees: String?
+    //@NSManaged public var employees: NSSet? //коллекция
 
 }
 
 // MARK: Generated accessors for employees
 //массив
-extension Company {
-
-    @objc(addEmployeesObject:)
-    @NSManaged public func addToEmployees(_ value: Employee)
-
-    @objc(removeEmployeesObject:)
-    @NSManaged public func removeFromEmployees(_ value: Employee)
-
-    @objc(addEmployees:)
-    @NSManaged public func addToEmployees(_ values: NSSet)
-
-    @objc(removeEmployees:)
-    @NSManaged public func removeFromEmployees(_ values: NSSet)
-
-}
+//extension Company {
+//
+//    @objc(addEmployeesObject:)
+//    @NSManaged public func addToEmployees(_ value: Employee)
+//
+//    @objc(removeEmployeesObject:)
+//    @NSManaged public func removeFromEmployees(_ value: Employee)
+//
+//    @objc(addEmployees:)
+//    @NSManaged public func addToEmployees(_ values: NSSet)
+//
+//    @objc(removeEmployees:)
+//    @NSManaged public func removeFromEmployees(_ values: NSSet)
+//
+//}

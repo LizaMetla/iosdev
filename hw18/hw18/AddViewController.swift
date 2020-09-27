@@ -7,9 +7,14 @@
 //
 
 import UIKit
+import CoreData
 
 class AddViewController: UIViewController {
     var company: Company?
+    //var company: [String] = []
+    
+    let persistentContainer = NSPersistentContainer(name: "Company")
+    
     
     @IBOutlet weak var NameOfCompane: UILabel!
     @IBOutlet weak var nameOfCompanyTextField: UITextField!
@@ -27,9 +32,16 @@ class AddViewController: UIViewController {
     @IBOutlet weak var positionTextField: UITextField!
     
     @IBAction func saveButton(_ sender: Any) {
-//        if saveCompany() {
-//            dismiss(animated: true, completion: nil)
-//        }
+
+        let context: NSManagedObjectContext = {
+          return persistentContainer.viewContext
+        }()
+        company = Company(context: context)
+        company?.nameOfCompany = nameOfCompanyTextField.text
+        company?.adress = adressTextField.text
+        company?.numberOfEmployees = employeeNumberTextField.text
+        //company?.p positionTextField.text
+        
     }
     
     @IBAction func cancelButton(_ sender: Any) {

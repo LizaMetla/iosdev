@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreData
+import Combine
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -15,15 +16,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     //CREATE,READ,UPDATE,DELETE
     
     var window: UIWindow?
-    var context: NSManagedObjectContext!
+    //var context: NSManagedObjectContext!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
 //        context = persistentContainer.viewContext
 //        createCompany()
         
+//        // Описание сущности
+       //let entityDescription = NSEntityDescription.entityForName("Company", inManagedObjectContext: self.managedObjectContext)
+//
+//        // Создание нового объекта
+//        let managedObject = NSManagedObject(entity: entityDescription!, insertIntoManagedObjectContext: self.managedObjectContext)
+        
         return true
     }
+    
+
     
     func applicationWillTerminate(_ application: UIApplication) {
         self.saveContext()

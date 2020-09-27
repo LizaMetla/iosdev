@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class TableViewController: UITableViewController {
     
@@ -16,11 +17,14 @@ class TableViewController: UITableViewController {
     }
     
     
+//    func saveCompany() {
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        let content = appDelegate.pers
+//    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.navigationController?.navigationBar.prefersLargeTitles = true
         
     }
 
@@ -40,6 +44,7 @@ class TableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
+        //все компании имеют id + ячейки
         cell.textLabel?.text = companies[indexPath.row]
 
         return cell
