@@ -50,13 +50,76 @@
         <!--Show Company View Controller-->
         <scene sceneID="pak-AM-Vad">
             <objects>
-                <viewController id="h9g-f0-AO5" customClass="ShowCompanyViewController" customModule="hw18" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShowCompany" id="h9g-f0-AO5" customClass="ShowCompanyViewController" customModule="hw18" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cFH-uk-QvI">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8w2-io-2Bz">
+                                <rect key="frame" x="9" y="136" width="396" height="250"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Компания" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wdf-od-unO">
+                                        <rect key="frame" x="0.0" y="0.0" width="396" height="27"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GhZ-p2-Qlb">
+                                        <rect key="frame" x="0.0" y="37" width="396" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="mfm-41-5ql"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Адрес" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nLp-zu-I8N">
+                                        <rect key="frame" x="0.0" y="81" width="396" height="26.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xlN-0z-Ker">
+                                        <rect key="frame" x="0.0" y="117.5" width="396" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="vSb-gJ-68O"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Количество работников" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyW-Ml-u9F">
+                                        <rect key="frame" x="0.0" y="161.5" width="396" height="44.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="L9m-U5-EGO">
+                                        <rect key="frame" x="0.0" y="216" width="396" height="34"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="34" id="AVa-Jb-KIA"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="aSr-pl-NLe"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="faQ-Uo-YkF" firstAttribute="trailing" secondItem="8w2-io-2Bz" secondAttribute="trailing" constant="9" id="6oN-kY-28S"/>
+                            <constraint firstItem="8w2-io-2Bz" firstAttribute="leading" secondItem="faQ-Uo-YkF" secondAttribute="leading" constant="9" id="apt-tz-FCx"/>
+                            <constraint firstItem="8w2-io-2Bz" firstAttribute="centerX" secondItem="faQ-Uo-YkF" secondAttribute="centerX" id="bDK-vt-9Nc"/>
+                            <constraint firstItem="8w2-io-2Bz" firstAttribute="top" secondItem="faQ-Uo-YkF" secondAttribute="top" constant="136" id="eyk-at-A1i"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="faQ-Uo-YkF"/>
                     </view>
+                    <connections>
+                        <outlet property="adressTextLabel" destination="xlN-0z-Ker" id="wja-mR-tHY"/>
+                        <outlet property="companyTextLabel" destination="GhZ-p2-Qlb" id="K1e-yZ-jDD"/>
+                        <outlet property="numberOfEmployesTextField" destination="L9m-U5-EGO" id="g8h-Ck-2vV"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p8a-ed-GzH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

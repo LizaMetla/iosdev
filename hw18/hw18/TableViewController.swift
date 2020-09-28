@@ -12,7 +12,6 @@ import CoreData
 class TableViewController: UITableViewController {
     
     private var companies: [Company] = []
-
     @IBAction func AddCompanyAction(_ sender: UIBarButtonItem) {
     }
 
@@ -94,6 +93,19 @@ class TableViewController: UITableViewController {
 
         return cell
     }
+    
+
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+
+        let selectedCompany = fetchedResultsController.object(at: indexPath)
+        let newView: ShowCompanyViewController = self.storyboard?.instantiateViewController(withIdentifier: "ShowCompany") as! ShowCompanyViewController
+
+        newView.companyName = selectedCompany.nameOfCompany ?? ""
+        self.present(newView, animated: true, completion: nil)
+
+
+
+   }
 
 }
 
@@ -183,6 +195,7 @@ extension TableViewController: NSFetchedResultsControllerDelegate {
         tableView.endUpdates()
     }
 }
+
 
 
 
