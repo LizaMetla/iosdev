@@ -50,22 +50,22 @@ class AddViewController: UIViewController {
         }
     }
 
-    private func refreshCompanies() {
-        
-        let mainContext = PersistenceManager.shared.context
-        
-        do {
-            let fetchRequest: NSFetchRequest<Company> = Company.fetchRequest()
-            let allCompanies = try mainContext.fetch(fetchRequest)
-            
-            //companies = allCompanies
-
-
-        } catch {
-            print(error)
-        }
-        
-    }
+//    private func refreshCompanies() {
+//        
+//        let mainContext = PersistenceManager.shared.context
+//        
+//        do {
+//            let fetchRequest: NSFetchRequest<Company> = Company.fetchRequest()
+//            let allCompanies = try mainContext.fetch(fetchRequest)
+//            
+//            //companies = allCompanies
+//
+//
+//        } catch {
+//            print(error)
+//        }
+//        
+//    }
 
     
 private func addNewCompany(nameOfCompany: String?, adress: String?, numberOfEmployees: String? ) {
@@ -86,7 +86,8 @@ private func addNewCompany(nameOfCompany: String?, adress: String?, numberOfEmpl
         PersistenceManager.shared.saveContext(context: mainContext)
         
         
-        refreshCompanies()
+        //refreshCompanies()
+    //перекинуть на контроллер со списком
         
     }
     

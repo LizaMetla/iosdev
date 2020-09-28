@@ -10,7 +10,7 @@
 import Foundation
 import CoreData
 
-//@objc(Company)
+@objc(Company)
 public class Company: NSManagedObject {
     
 }
