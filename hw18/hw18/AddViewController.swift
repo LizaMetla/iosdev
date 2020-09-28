@@ -10,10 +10,10 @@ import UIKit
 import CoreData
 
 class AddViewController: UIViewController {
-    var company: Company?
-    //var company: [String] = []
     
-    let persistentContainer = NSPersistentContainer(name: "Company")
+    private var companies: [Company] = []
+   
+    //let persistentContainer = NSPersistentContainer(name: "Company")
     
     
     @IBOutlet weak var NameOfCompane: UILabel!
@@ -33,14 +33,10 @@ class AddViewController: UIViewController {
     
     @IBAction func saveButton(_ sender: Any) {
 
-        let context: NSManagedObjectContext = {
-          return persistentContainer.viewContext
-        }()
-        company = Company(context: context)
-        company?.nameOfCompany = nameOfCompanyTextField.text
-        company?.adress = adressTextField.text
-        company?.numberOfEmployees = employeeNumberTextField.text
-        //company?.p positionTextField.text
+        addNewCompany(nameOfCompany: nameOfCompanyTextField.text, adress: adressTextField.text, numberOfEmployees: employeeNumberTextField.text)
+        
+   
+
         
     }
     
@@ -48,23 +44,62 @@ class AddViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
+        override func viewDidLoad() {
+            super.viewDidLoad()
+            refreshCompanies()
+        }
+    }
 
-        // Do any additional setup after loading the view.
+    private func refreshCompanies() {
+        
+        let mainContext = PersistenceManager.shared.context
+        
+        do {
+            let fetchRequest: NSFetchRequest<Company> = Company.fetchRequest()
+            let allCompanies = try mainContext.fetch(fetchRequest)
+            
+            //companies = allCompanies
+
+
+        } catch {
+            print(error)
+        }
+        
+    }
+
+    
+private func addNewCompany(nameOfCompany: String?, adress: String?, numberOfEmployees: String? ) {
+        
+        let mainContext = PersistenceManager.shared.context
+        
+        let privateContext = NSManagedObjectContext(concurrencyType: .privateQueueConcurrencyType)
+        privateContext.parent = mainContext
+        
+        privateContext.performAndWait {
+            let company = Company(context: privateContext)
+            company.nameOfCompany = nameOfCompany
+            company.adress = adress
+            company.numberOfEmployees = 3
+            
+            PersistenceManager.shared.saveContext(context: privateContext)
+        }
+        PersistenceManager.shared.saveContext(context: mainContext)
+        
+        
+        refreshCompanies()
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    private func getAllCompanies() {
+        do {
+            let fetchRequest: NSFetchRequest<Company> = Company.fetchRequest()
+            
+            let allCompanies = try PersistenceManager.shared.context.fetch(fetchRequest)
+            allCompanies.forEach { print($0.nameOfCompany ?? "No Name") }
+        } catch {
+            print(error)
+        }
     }
-    */
+    
+    
 
-}
