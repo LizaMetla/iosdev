@@ -96,6 +96,41 @@ class TableViewController: UITableViewController {
     }
 
 }
+
+//MARK: - delete company in a row
+
+extension TableViewController {
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        switch editingStyle {
+        case .delete:
+            let company = fetchedResultsController.object(at: indexPath)
+            
+            let alert = UIAlertController(title: "Warning", message: "Are you sure you want to delete company with name \(company.nameOfCompany ?? "")?", preferredStyle: .alert)
+            
+            let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { _ in
+                let mainContext = PersistenceManager.shared.context
+                mainContext.delete(company)
+                PersistenceManager.shared.saveContext(context: mainContext)
+            }
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+            
+            
+            alert.addAction(cancelAction)
+            alert.addAction(deleteAction)
+            
+            present(alert, animated: true, completion: nil)
+            
+        default: break
+        }
+    
+    }
+}
+
+// MARK: - Showing TableView with Updated data data + NSFetchedResultsControllerDelegate
+
 extension TableViewController: NSFetchedResultsControllerDelegate {
 
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, sectionIndexTitleForSectionName sectionName: String) -> String? {
@@ -149,38 +184,5 @@ extension TableViewController: NSFetchedResultsControllerDelegate {
     }
 }
 
-//extension TableViewController {
-//
-//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//
-//        switch editingStyle {
-//        case .delete:
-//            let company = companies[indexPath.row]
-//
-//            let alert = UIAlertController(title: "Warning", message: "Are you sure you want to delete company with name \(company.name ?? "")?", preferredStyle: .alert)
-//
-//            let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { [weak self] _ in
-//
-//                guard let self = self else { return }
-//
-//                let mainContext = PersistenceManager.shared.context
-//                mainContext.delete(company)
-//                PersistenceManager.shared.saveContext(context: mainContext)
-//
-//                self.refreshCompanies()
-//            }
-//
-//            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-//
-//
-//            alert.addAction(cancelAction)
-//            alert.addAction(deleteAction)
-//
-//            present(alert, animated: true, completion: nil)
-//
-//        default: break
-//        }
-//
-//    }
-//}
+
 
