@@ -34,10 +34,7 @@ class AddViewController: UIViewController {
     @IBAction func saveButton(_ sender: Any) {
 
         addNewCompany(nameOfCompany: nameOfCompanyTextField.text, adress: adressTextField.text, numberOfEmployees: employeeNumberTextField.text)
-        
-   
-
-        
+        dismiss(animated: true, completion: nil)
     }
     
     @IBAction func cancelButton(_ sender: Any) {
@@ -46,7 +43,7 @@ class AddViewController: UIViewController {
     
         override func viewDidLoad() {
             super.viewDidLoad()
-            refreshCompanies()
+            //refreshCompanies()
         }
     }
 
@@ -79,7 +76,7 @@ private func addNewCompany(nameOfCompany: String?, adress: String?, numberOfEmpl
             let company = Company(context: privateContext)
             company.nameOfCompany = nameOfCompany
             company.adress = adress
-            company.numberOfEmployees = 3
+            company.numberOfEmployees = Int64(numberOfEmployees ?? "0")!
             
             PersistenceManager.shared.saveContext(context: privateContext)
         }

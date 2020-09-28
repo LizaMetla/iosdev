@@ -21,20 +21,25 @@ class TableViewController: UITableViewController {
         let mainContext = PersistenceManager.shared.context
         
         let fetchRequest: NSFetchRequest<Company> = Company.fetchRequest()
-        let nameSD = NSSortDescriptor(key: "name", ascending: true)
+        let nameSD = NSSortDescriptor(key: "nameOfCompany", ascending: true)
         fetchRequest.sortDescriptors = [nameSD]
         
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest,
                                              managedObjectContext: mainContext,
-                                             sectionNameKeyPath: "name",
+                                             sectionNameKeyPath: "nameOfCompany",
                                              cacheName: nil)
-        //frc.delegate = self
+        frc.delegate = self
         return frc
     }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        refreshCompanies()
+        printDBPath()
+        do {
+            try fetchedResultsController.performFetch()
+        } catch {
+            print(error)
+        }
     }
     
     private func refreshCompanies() {
@@ -62,77 +67,87 @@ class TableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         
-        return 1
+        guard let sections = fetchedResultsController.sections else { return 0 }
+        return sections.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return companies.count
+        guard let sections = fetchedResultsController.sections else { return 0 }
+        let targetSection = sections[section]
+        return targetSection.numberOfObjects
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        guard let sections = fetchedResultsController.sections else { return nil }
+        let targetSection = sections[section]
+        return targetSection.name
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
-        //все компании имеют id + ячейки
-        cell.textLabel?.text = companies[indexPath.row].nameOfCompany ?? "NO NAME"
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as? CompanyTableViewCell else { fatalError() }
+        
+        let company = fetchedResultsController.object(at: indexPath)
+        cell.update(with: company)
 
         return cell
     }
 
 }
-//extension TableViewController: NSFetchedResultsControllerDelegate {
-//
-//    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, sectionIndexTitleForSectionName sectionName: String) -> String? {
-//        sectionName
-//    }
-//
-//    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-//        tableView.beginUpdates()
-//    }
-//
-//    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
-//        switch type {
-//        case .insert:
-//            tableView.insertSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .fade)
-//        case .delete:
-//            tableView.deleteSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .fade)
-//        default:
-//            return
-//        }
-//    }
-//
-//    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
-//        switch type {
-//        case .insert:
-//            if let indexPath = newIndexPath as IndexPath? {
-//                tableView.insertRows(at: [indexPath], with: .automatic)
-//            }
-//        case .update:
-//            if let indexPath = indexPath as IndexPath? {
-//                let company = fetchedResultsController.object(at: indexPath)
-//                guard let cell = tableView.cellForRow(at: indexPath) as? "Cell" else { break }
-//                cell.update(with: company)
-//            }
-//        case .move:
-//            if let indexPath = indexPath as IndexPath? {
-//                tableView.deleteRows(at: [indexPath], with: .automatic)
-//            }
-//            if let newIndexPath = newIndexPath as IndexPath? {
-//                tableView.insertRows(at: [newIndexPath], with: .automatic)
-//            }
-//        case .delete:
-//            if let indexPath = indexPath as IndexPath? {
-//                tableView.deleteRows(at: [indexPath], with: .automatic)
-//            }
-//        @unknown default: break
-//        }
-//    }
-//
-//    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
-//        tableView.endUpdates()
-//    }
-//}
+extension TableViewController: NSFetchedResultsControllerDelegate {
+
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, sectionIndexTitleForSectionName sectionName: String) -> String? {
+        sectionName
+    }
+
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType) {
+        switch type {
+        case .insert:
+            tableView.insertSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .fade)
+        case .delete:
+            tableView.deleteSections(NSIndexSet(index: sectionIndex) as IndexSet, with: .fade)
+        default:
+            return
+        }
+    }
+
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch type {
+        case .insert:
+            if let indexPath = newIndexPath as IndexPath? {
+                tableView.insertRows(at: [indexPath], with: .automatic)
+            }
+        case .update:
+            if let indexPath = indexPath as IndexPath? {
+                let company = fetchedResultsController.object(at: indexPath)
+                guard let cell = tableView.cellForRow(at: indexPath) as? CompanyTableViewCell else { break }
+                cell.update(with: company)
+            }
+        case .move:
+            if let indexPath = indexPath as IndexPath? {
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+            if let newIndexPath = newIndexPath as IndexPath? {
+                tableView.insertRows(at: [newIndexPath], with: .automatic)
+            }
+        case .delete:
+            if let indexPath = indexPath as IndexPath? {
+                tableView.deleteRows(at: [indexPath], with: .automatic)
+            }
+        @unknown default: break
+        }
+    }
+
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+    }
+}
 
 //extension TableViewController {
 //
