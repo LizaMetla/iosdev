@@ -11,7 +11,8 @@ import UIKit
 class CompanyTableViewCell: UITableViewCell {
 
     public func update(with company: Company) {
-        textLabel?.text = "\(company.nameOfCompany ?? "") | Adress: \(company.adress ?? "") | Employee: \(company.numberOfEmployees)"
+       // textLabel?.text = "\(company.nameOfCompany ?? "") | Adress: \(company.adress ?? "") | Employee: \(company.numberOfEmployees)"
+        textLabel?.text = "\(company.nameOfCompany ?? "")"
     }
     
     override func awakeFromNib() {

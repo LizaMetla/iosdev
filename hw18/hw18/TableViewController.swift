@@ -101,6 +101,10 @@ class TableViewController: UITableViewController {
         let newView: ShowCompanyViewController = self.storyboard?.instantiateViewController(withIdentifier: "ShowCompany") as! ShowCompanyViewController
 
         newView.companyName = selectedCompany.nameOfCompany ?? ""
+        newView.companyAdress = selectedCompany.adress ?? ""
+        
+        newView.numberEmployees = String(selectedCompany.numberOfEmployees)
+        
         self.present(newView, animated: true, completion: nil)
 
 

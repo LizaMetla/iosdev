@@ -15,6 +15,8 @@ class ShowCompanyViewController: UIViewController {
     @IBOutlet weak var adressTextLabel: UITextField!
     @IBOutlet weak var numberOfEmployesTextField: UITextField!
     var companyName :String?
+    var companyAdress: String?
+    var numberEmployees: String?
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -22,7 +24,11 @@ class ShowCompanyViewController: UIViewController {
     }
  override func viewWillAppear(_ animated: Bool) {
      companyTextLabel.text = companyName
- }
+     adressTextLabel.text = companyAdress
+    
+     numberOfEmployesTextField.text = numberEmployees
+    
     
      
+}
 }
