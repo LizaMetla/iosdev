@@ -17,11 +17,11 @@ extension Company {
         return NSFetchRequest<Company>(entityName: "Company")
     }
 
-    //проперти
+    
     @NSManaged public var nameOfCompany: String?
     @NSManaged public var adress: String?
     @NSManaged public var numberOfEmployees: Int64
-    @NSManaged public var employees: NSSet? //коллекция
+    @NSManaged public var employees: NSSet?
 
 }
 

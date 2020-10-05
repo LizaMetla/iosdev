@@ -23,11 +23,6 @@ class AddViewController: UIViewController {
     @IBOutlet weak var employeeNumber: UILabel!
     @IBOutlet weak var employeeNumberTextField: UITextField!
     
-    @IBOutlet weak var EmployeeName: UILabel!
-    @IBOutlet weak var employeeNameTextField: UITextField!
-    
-    @IBOutlet weak var position: UILabel!
-    @IBOutlet weak var positionTextField: UITextField!
     
     @IBAction func saveButton(_ sender: Any) {
 

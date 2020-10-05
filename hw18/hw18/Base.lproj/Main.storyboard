@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WJv-Z2-CrV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WJv-Z2-CrV">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -14,7 +16,7 @@
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="P2s-6A-XU5">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" id="5Js-NQ-tQa" customClass="CompanyTableViewCell" customModule="hw18" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
@@ -53,7 +55,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="8w2-io-2Bz">
-                                <rect key="frame" x="9" y="180" width="396" height="250"/>
+                                <rect key="frame" x="9" y="64" width="396" height="250"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Компания" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wdf-od-unO">
                                         <rect key="frame" x="0.0" y="0.0" width="396" height="27"/>
@@ -103,14 +105,14 @@
                                 </constraints>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="faQ-Uo-YkF"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="faQ-Uo-YkF" firstAttribute="trailing" secondItem="8w2-io-2Bz" secondAttribute="trailing" constant="9" id="6oN-kY-28S"/>
                             <constraint firstItem="8w2-io-2Bz" firstAttribute="leading" secondItem="faQ-Uo-YkF" secondAttribute="leading" constant="9" id="apt-tz-FCx"/>
                             <constraint firstItem="8w2-io-2Bz" firstAttribute="centerX" secondItem="faQ-Uo-YkF" secondAttribute="centerX" id="bDK-vt-9Nc"/>
-                            <constraint firstItem="8w2-io-2Bz" firstAttribute="top" secondItem="faQ-Uo-YkF" secondAttribute="top" constant="136" id="eyk-at-A1i"/>
+                            <constraint firstItem="8w2-io-2Bz" firstAttribute="top" secondItem="faQ-Uo-YkF" secondAttribute="top" constant="20" id="eyk-at-A1i"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="faQ-Uo-YkF"/>
                     </view>
                     <connections>
                         <outlet property="adressTextLabel" destination="xlN-0z-Ker" id="wja-mR-tHY"/>
@@ -185,7 +187,7 @@
                                 <items>
                                     <navigationItem title="Создание компании" id="gxK-x0-LdP">
                                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Osp-f3-Zej">
-                                            <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="tintColor" systemColor="systemRedColor"/>
                                             <connections>
                                                 <action selector="cancelButton:" destination="S9Z-qK-AzM" id="Grq-C3-yAo"/>
                                             </connections>
@@ -200,7 +202,8 @@
                                 </items>
                             </navigationBar>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="CDf-Qm-5Vo"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="2Qc-nq-fzN" firstAttribute="top" secondItem="CDf-Qm-5Vo" secondAttribute="top" id="5bI-0R-pNf"/>
                             <constraint firstItem="54g-aK-Ax8" firstAttribute="top" secondItem="CDf-Qm-5Vo" secondAttribute="top" constant="70" id="6ps-bx-Rih"/>
@@ -209,7 +212,6 @@
                             <constraint firstItem="CDf-Qm-5Vo" firstAttribute="trailing" secondItem="54g-aK-Ax8" secondAttribute="trailing" constant="15" id="pdm-eO-9vs"/>
                             <constraint firstItem="54g-aK-Ax8" firstAttribute="leading" secondItem="CDf-Qm-5Vo" secondAttribute="leading" constant="15" id="sGM-kh-R5J"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="CDf-Qm-5Vo"/>
                     </view>
                     <connections>
                         <outlet property="NameOfCompane" destination="GJC-o7-eOQ" id="oJ7-1g-plO"/>
@@ -243,4 +245,12 @@
             <point key="canvasLocation" x="1041" y="108"/>
         </scene>
     </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
