@@ -41,22 +41,7 @@ class TableViewController: UITableViewController {
         }
     }
     
-    private func refreshCompanies() {
-        
-        let mainContext = PersistenceManager.shared.context
-        
-        do {
-            let fetchRequest: NSFetchRequest<Company> = Company.fetchRequest()
-            let allCompanies = try mainContext.fetch(fetchRequest)
-            
-            companies = allCompanies
-            tableView.reloadData()
 
-        } catch {
-            print(error)
-        }
-        
-    }
     private func printDBPath() {
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         print(urls[urls.count-1] as URL)

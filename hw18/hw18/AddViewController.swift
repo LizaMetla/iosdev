@@ -12,8 +12,6 @@ import CoreData
 class AddViewController: UIViewController {
     
     private var companies: [Company] = []
-   
-    //let persistentContainer = NSPersistentContainer(name: "Company")
     
     
     @IBOutlet weak var NameOfCompane: UILabel!
@@ -43,13 +41,11 @@ class AddViewController: UIViewController {
     
         override func viewDidLoad() {
             super.viewDidLoad()
-            //refreshCompanies()
+    
         }
     }
 
-
-    
-private func addNewCompany(nameOfCompany: String?, adress: String?, numberOfEmployees: String? ) {
+    private func addNewCompany(nameOfCompany: String?, adress: String?, numberOfEmployees: String? ) {
         
         let mainContext = PersistenceManager.shared.context
         
@@ -66,22 +62,9 @@ private func addNewCompany(nameOfCompany: String?, adress: String?, numberOfEmpl
         }
         PersistenceManager.shared.saveContext(context: mainContext)
         
-        
-        //refreshCompanies()
-    //перекинуть на контроллер со списком
-        
+
     }
-    
-    private func getAllCompanies() {
-        do {
-            let fetchRequest: NSFetchRequest<Company> = Company.fetchRequest()
-            
-            let allCompanies = try PersistenceManager.shared.context.fetch(fetchRequest)
-            allCompanies.forEach { print($0.nameOfCompany ?? "No Name") }
-        } catch {
-            print(error)
-        }
-    }
+
     
     
 
