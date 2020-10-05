@@ -91,6 +91,8 @@ class TableViewController: UITableViewController {
         newView.numberEmployees = String(selectedCompany.numberOfEmployees)
         
         self.present(newView, animated: true, completion: nil)
+        
+        tableView.deselectRow(at: indexPath, animated: true)
 
 
 
