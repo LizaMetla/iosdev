@@ -16,9 +16,8 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         if let url = URL(string:imageURL ?? "") {
-        imageView.kf.setImage(with: url)
+            imageView.kf.setImage(with: url)
         }
     }
 }

@@ -35,8 +35,8 @@ class PageViewController: UIPageViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         for index in 1...count {
             if let vc = storyboard.instantiateViewController(identifier: "ViewController") as? ViewController {
-                vc.imageURL = images [index - 1]
-            controllers.append(vc)
+                vc.imageURL = images[index - 1]
+                controllers.append(vc)
             }
         }
         
@@ -82,7 +82,6 @@ extension PageViewController: UIPageViewControllerDataSource{
             return nil
         }
         
-        //let nextVCindex = index + 1
         let nextVCindex = index + 1
         
         if nextVCindex < count {
