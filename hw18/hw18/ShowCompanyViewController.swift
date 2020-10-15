@@ -20,12 +20,8 @@ class ShowCompanyViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-     companyTextLabel.text = companyName
-     adressTextLabel.text = companyAdress
-     numberOfEmployesTextField.text = numberEmployees
+        companyTextLabel.text = companyName
+        adressTextLabel.text = companyAdress
+        numberOfEmployesTextField.text = numberEmployees
     }
 }

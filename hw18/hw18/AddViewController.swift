@@ -69,7 +69,6 @@ class AddViewController: UIViewController , UIPickerViewDelegate, UIPickerViewDa
 }
 
     
-
     private func addNewCompany(nameOfCompany: String?, adress: String?, numberOfEmployees: String? ) {
         
         let mainContext = PersistenceManager.shared.context
@@ -81,7 +80,9 @@ class AddViewController: UIViewController , UIPickerViewDelegate, UIPickerViewDa
             let company = Company(context: privateContext)
             company.nameOfCompany = nameOfCompany
             company.adress = adress
+            //need to change
             company.numberOfEmployees = Int64(numberOfEmployees ?? "0")!
+            
             
             PersistenceManager.shared.saveContext(context: privateContext)
         }

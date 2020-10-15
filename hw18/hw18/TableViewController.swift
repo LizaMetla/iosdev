@@ -87,8 +87,9 @@ class TableViewController: UITableViewController {
 
         newView.companyName = selectedCompany.nameOfCompany ?? ""
         newView.companyAdress = selectedCompany.adress ?? ""
-        
+        //need to change
         newView.numberEmployees = String(selectedCompany.numberOfEmployees)
+        
         
         present(newView, animated: true, completion: nil)
         

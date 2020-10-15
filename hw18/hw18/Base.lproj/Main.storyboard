@@ -37,7 +37,7 @@
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="AddCompanyAction:" destination="0is-kx-hZf" id="TCe-B0-3Lx"/>
-                                <segue destination="S9Z-qK-AzM" kind="presentation" id="LQj-QC-oqT"/>
+                                <segue destination="Uho-In-ubq" kind="show" id="LQj-QC-oqT"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -124,16 +124,16 @@
             </objects>
             <point key="canvasLocation" x="2958" y="611"/>
         </scene>
-        <!--Add View Controller-->
+        <!--Создание компании-->
         <scene sceneID="2H7-CH-Fnd">
             <objects>
-                <viewController modalPresentationStyle="fullScreen" id="S9Z-qK-AzM" customClass="AddViewController" customModule="hw18" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalTransitionStyle="flipHorizontal" modalPresentationStyle="fullScreen" id="S9Z-qK-AzM" customClass="AddViewController" customModule="hw18" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rvb-JN-eLH">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="54g-aK-Ax8">
-                                <rect key="frame" x="15" y="114" width="384" height="250"/>
+                                <rect key="frame" x="15" y="113" width="384" height="250"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Название компании" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GJC-o7-eOQ">
                                         <rect key="frame" x="0.0" y="0.0" width="384" height="27"/>
@@ -183,36 +183,36 @@
                                 </constraints>
                             </stackView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Qc-nq-fzN">
-                                <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                                <items>
-                                    <navigationItem title="Создание компании" id="gxK-x0-LdP">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Osp-f3-Zej">
-                                            <color key="tintColor" systemColor="systemRedColor"/>
-                                            <connections>
-                                                <action selector="cancelButton:" destination="S9Z-qK-AzM" id="Grq-C3-yAo"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="18d-0h-gNw">
-                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <connections>
-                                                <action selector="saveButton:" destination="S9Z-qK-AzM" id="Zle-Bt-nOo"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
-                                </items>
+                                <rect key="frame" x="0.0" y="88" width="414" height="44"/>
                             </navigationBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CDf-Qm-5Vo"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="2Qc-nq-fzN" firstAttribute="top" secondItem="CDf-Qm-5Vo" secondAttribute="top" id="5bI-0R-pNf"/>
-                            <constraint firstItem="54g-aK-Ax8" firstAttribute="top" secondItem="CDf-Qm-5Vo" secondAttribute="top" constant="70" id="6ps-bx-Rih"/>
+                            <constraint firstItem="54g-aK-Ax8" firstAttribute="top" secondItem="CDf-Qm-5Vo" secondAttribute="top" constant="25" id="6ps-bx-Rih"/>
                             <constraint firstItem="2Qc-nq-fzN" firstAttribute="leading" secondItem="CDf-Qm-5Vo" secondAttribute="leading" id="9L3-KT-d8q"/>
                             <constraint firstItem="2Qc-nq-fzN" firstAttribute="centerX" secondItem="54g-aK-Ax8" secondAttribute="centerX" id="mlO-0n-7UH"/>
                             <constraint firstItem="CDf-Qm-5Vo" firstAttribute="trailing" secondItem="54g-aK-Ax8" secondAttribute="trailing" constant="15" id="pdm-eO-9vs"/>
                             <constraint firstItem="54g-aK-Ax8" firstAttribute="leading" secondItem="CDf-Qm-5Vo" secondAttribute="leading" constant="15" id="sGM-kh-R5J"/>
                         </constraints>
                     </view>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Создание компании" id="sLq-xZ-Szs">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Osp-f3-Zej">
+                            <color key="tintColor" systemColor="systemRedColor"/>
+                            <connections>
+                                <action selector="cancelButton:" destination="S9Z-qK-AzM" id="Grq-C3-yAo"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="18d-0h-gNw">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="saveButton:" destination="S9Z-qK-AzM" id="Zle-Bt-nOo"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="NameOfCompane" destination="GJC-o7-eOQ" id="oJ7-1g-plO"/>
                         <outlet property="adress" destination="z8R-Z3-StZ" id="MJN-jh-JfZ"/>
@@ -224,7 +224,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eey-Wa-3lw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2957.971014492754" y="-146.65178571428569"/>
+            <point key="canvasLocation" x="3868.115942028986" y="-146.65178571428569"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="gjv-tY-a79">
@@ -243,6 +243,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TIk-ou-x4i" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1041" y="108"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="R5y-yo-9j5">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Uho-In-ubq" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="Ibm-eL-sGA"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="E4R-vN-MRF">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="S9Z-qK-AzM" kind="relationship" relationship="rootViewController" id="51Q-wQ-Wr5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v56-cW-e3W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2957.971014492754" y="-146.65178571428569"/>
         </scene>
     </scenes>
     <resources>
