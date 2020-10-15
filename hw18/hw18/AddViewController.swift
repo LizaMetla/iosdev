@@ -9,11 +9,13 @@
 import UIKit
 import CoreData
 
-class AddViewController: UIViewController {
+class AddViewController: UIViewController , UIPickerViewDelegate, UIPickerViewDataSource{
     
     private var companies: [Company] = []
     
+    let number = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15"]
     
+    var pickerView = UIPickerView()
     @IBOutlet weak var NameOfCompane: UILabel!
     @IBOutlet weak var nameOfCompanyTextField: UITextField!
     
@@ -37,8 +39,36 @@ class AddViewController: UIViewController {
     
         override func viewDidLoad() {
             super.viewDidLoad()
+            
+            pickerView.delegate = self
+            pickerView.dataSource = self
+            
+            employeeNumberTextField.inputView = pickerView
+            employeeNumberTextField.textAlignment = .center
+            employeeNumberTextField.placeholder = "Кол-во работников"
         }
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
     }
+
+
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return number.count
+    }
+
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return number[row]
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        employeeNumberTextField.text = number[row]
+        employeeNumberTextField.resignFirstResponder()
+    }
+    
+}
+
+    
 
     private func addNewCompany(nameOfCompany: String?, adress: String?, numberOfEmployees: String? ) {
         

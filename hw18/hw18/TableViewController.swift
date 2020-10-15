@@ -11,10 +11,10 @@ import CoreData
 
 class TableViewController: UITableViewController {
     
-    private var companies: [Company] = []
-    
     @IBAction func AddCompanyAction(_ sender: UIBarButtonItem) {
     }
+    
+    private var companies: [Company] = []
 
     private lazy var fetchedResultsController: NSFetchedResultsController<Company> = {
         
@@ -41,7 +41,6 @@ class TableViewController: UITableViewController {
             print(error)
         }
     }
-    
 
     private func printDBPath() {
         let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
