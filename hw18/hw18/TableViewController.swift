@@ -12,6 +12,7 @@ import CoreData
 class TableViewController: UITableViewController {
     
     private var companies: [Company] = []
+    
     @IBAction func AddCompanyAction(_ sender: UIBarButtonItem) {
     }
 
@@ -90,7 +91,7 @@ class TableViewController: UITableViewController {
         
         newView.numberEmployees = String(selectedCompany.numberOfEmployees)
         
-        self.present(newView, animated: true, completion: nil)
+        present(newView, animated: true, completion: nil)
         
         tableView.deselectRow(at: indexPath, animated: true)
 
@@ -128,7 +129,6 @@ extension TableViewController {
             
         default: break
         }
-    
     }
 }
 

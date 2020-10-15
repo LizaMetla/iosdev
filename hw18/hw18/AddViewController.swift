@@ -27,6 +27,7 @@ class AddViewController: UIViewController {
     @IBAction func saveButton(_ sender: Any) {
 
         addNewCompany(nameOfCompany: nameOfCompanyTextField.text, adress: adressTextField.text, numberOfEmployees: employeeNumberTextField.text)
+        
         dismiss(animated: true, completion: nil)
     }
     
@@ -36,7 +37,6 @@ class AddViewController: UIViewController {
     
         override func viewDidLoad() {
             super.viewDidLoad()
-    
         }
     }
 
@@ -56,10 +56,4 @@ class AddViewController: UIViewController {
             PersistenceManager.shared.saveContext(context: privateContext)
         }
         PersistenceManager.shared.saveContext(context: mainContext)
-        
-
     }
-
-    
-    
-
