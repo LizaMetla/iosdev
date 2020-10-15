@@ -11,7 +11,7 @@ import UIKit
 class CompanyTableViewCell: UITableViewCell {
 
     public func update(with company: Company) {
-        textLabel?.text = "\(company.nameOfCompany ?? "")"
+        textLabel?.text = company.nameOfCompany
     }
     
     override func awakeFromNib() {
