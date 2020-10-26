@@ -35,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
 }
+<<<<<<< HEAD
     
     
     
@@ -118,3 +119,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 ////    }
 ////}
 //
+=======
+>>>>>>> 67f3968152238fb7aa70ced5354f4daa1be140fb

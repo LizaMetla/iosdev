@@ -48,7 +48,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // to restore the scene back to its current state.
 
         // Save changes in the application's managed object context when the application transitions to the background.
+<<<<<<< HEAD
      //   PersistenceManager.shared.saveContext()
+=======
+       // (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
+>>>>>>> 67f3968152238fb7aa70ced5354f4daa1be140fb
     }
 
 

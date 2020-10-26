@@ -12,5 +12,9 @@ import CoreData
 
 @objc(Company)
 public class Company: NSManagedObject {
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 67f3968152238fb7aa70ced5354f4daa1be140fb
 }
